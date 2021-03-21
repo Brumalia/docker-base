@@ -1,1 +1,4 @@
-docker-base
+Brumalia/base container
+--
+
+Instructions coming soon.
