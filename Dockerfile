@@ -7,7 +7,7 @@ LABEL maintainer="Daniel A. Hawton <daniel@hawton.org>"
 RUN a2enmod expires rewrite
 
 # Install CMS dependencies
-RUN apt update && apt install -y --no-install-recommends \
+RUN apt-get update && apt install -y --no-install-recommends \
     unzip libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libyaml-dev libzip4 \
     libzip-dev zlib1g-dev libicu-dev libpq-dev libsqlite3-dev g++ git cron nano ssh-client && \
     docker-php-ext-install opcache && \
@@ -20,6 +20,7 @@ RUN apt update && apt install -y --no-install-recommends \
     docker-php-ext-install mysqli && \
     docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_pgsql && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Install apcu and yaml
